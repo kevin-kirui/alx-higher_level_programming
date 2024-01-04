@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 def add(a, b):
-    a = 1
-    b = 2
     print(a + b)
+value_a = 1
+value_b = 2
+add(value_a, value_b)
