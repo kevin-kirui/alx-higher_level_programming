@@ -1,6 +1,9 @@
 #!/usr/bin/python3
-def add(a, b):
-    print(a + b)
-value_a = 1
-value_b = 2
-add(value_a, value_b)
+if __name__ == "__main__":
+    from add_0 import add
+
+    a = 1
+    b = 2
+
+    print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
+
