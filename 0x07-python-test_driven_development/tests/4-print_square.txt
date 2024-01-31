@@ -1,0 +1,5 @@
+* **4. Text indentation**
+  * [5-text_indentation.py](./5-text_indentation.py): Python function that prints text with indentation.
+  * Two new lines are printed after any `.`, `?`, or `:` character.
+  * If `text` is not a `str`, a `TypeError` is raised with the message `text must be a string`.
+  * No spaces are printed at the beginning or end of each printed line.

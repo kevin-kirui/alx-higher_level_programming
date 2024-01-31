@@ -1,0 +1,5 @@
+* **3. Print square**
+  * [4-print_square.py](./4-print_square.py): Python function that prints a square using the `#` character.
+  * The paramter `size` represents the height/width of the square.
+  * If `size` is not an `int`, a `TypeError` is raised  with the message, `size must be an integer`.
+  * If `size` is less than `0`, a `ValueError` is raised with the message `size must be >= 0`.
