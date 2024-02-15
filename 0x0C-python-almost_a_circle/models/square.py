@@ -4,10 +4,12 @@ Defines a square class.
 """
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """
     Represent a square.
     """
+
     def __init__(self, size, x=0, y=0, id=None):
         """
         Initialize a new Square.
@@ -38,7 +40,8 @@ class Square(Rectangle):
                     self.x = arg
                 elif count == 3:
                     self.y = arg
-                else: continue
+                else:
+                    continue
 
         elif len(kwargs) > 0:
             for key, value in kwargs.items():
@@ -56,14 +59,14 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Return the dictionary representation of the Square."""
         square_dict = {
-                "id": self.id,
-                "size": self.width,
-                "x": self.x,
-                "y": self.y
-                }
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
         return square_dict
 
     def __str__(self):
         """Return the print() and str() representation of a Square."""
         return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-                self.width)
+                                                 self.width)

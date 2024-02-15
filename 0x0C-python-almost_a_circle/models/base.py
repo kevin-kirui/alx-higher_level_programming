@@ -7,14 +7,13 @@ import csv
 import turtle
 
 
-
 class Base:
 
     """
     Represents the base model
     """
-
     __nb_objects = 0
+
     def __init__(self, id=None):
 
         if id is not None:
@@ -206,6 +205,7 @@ class Base:
             turt.hideturtle()
 
         turtle.exitonclick()
+
 
 if __name__ == "__main__":
 

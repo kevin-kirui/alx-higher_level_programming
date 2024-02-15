@@ -4,10 +4,12 @@ Rectangle module
 """
 from models.base import Base
 
+
 class Rectangle(Base):
     """
     Rectangle class
     """
+
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initialize a new Rectangle.
         """
@@ -117,10 +119,10 @@ class Rectangle(Base):
         Return the print() and str() representation of the Rectangle.
         """
         return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id,
-                self.x,
-                self.y,
-                self.width,
-                self.height)
+                                                       self.x,
+                                                       self.y,
+                                                       self.width,
+                                                       self.height)
 
         def update(self, *args, **kwargs):
             """
@@ -161,13 +163,14 @@ class Rectangle(Base):
         Represents a dictionary representation of rectangle
         """
         rec_dict = {
-                "id": self.id,
-                "width": self.width,
-                "height": self.height,
-                "x": self.x,
-                "y": self.y
-                }
+            "id": self.id,
+            "width": self.width,
+            "height": self.height,
+            "x": self.x,
+            "y": self.y
+        }
         return rec_dict
+
 
 if __name__ == "__main__":
     pass
