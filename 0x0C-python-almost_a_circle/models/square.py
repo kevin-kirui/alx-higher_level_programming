@@ -4,12 +4,10 @@ Defines a square class.
 """
 from models.rectangle import Rectangle
 
-
 class Square(Rectangle):
     """
     Represent a square.
     """
-
     def __init__(self, size, x=0, y=0, id=None):
         """
         Initialize a new Square.
@@ -63,7 +61,6 @@ class Square(Rectangle):
                 "x": self.x,
                 "y": self.y
                 }
-
         return square_dict
 
     def __str__(self):

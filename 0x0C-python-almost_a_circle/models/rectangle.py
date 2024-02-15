@@ -4,7 +4,6 @@ Rectangle module
 """
 from models.base import Base
 
-
 class Rectangle(Base):
     """
     Rectangle class
@@ -13,7 +12,6 @@ class Rectangle(Base):
         """Initialize a new Rectangle.
         """
         super().__init__(id)
-
         self.width = width
         self.height = height
         self.x = x
@@ -169,9 +167,7 @@ class Rectangle(Base):
                 "x": self.x,
                 "y": self.y
                 }
-
         return rec_dict
-
 
 if __name__ == "__main__":
     pass
