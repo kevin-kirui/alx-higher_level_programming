@@ -656,5 +656,7 @@ class TestSquare_to_dictionary(unittest.TestCase):
         with self.assertRaises(TypeError):
             s.to_dictionary(1)
 
+
 if __name__ == "__main__":
+
     unittest.main()
