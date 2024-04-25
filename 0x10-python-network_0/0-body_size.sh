@@ -1,20 +1,11 @@
-#!/bin/bash
+#!/usr/bin/python3
 
-# Check if a URL argument is provided
-if [ -z "$1" ]; then
-  echo "Error: Please provide a URL as an argument."
-  exit 1
-fi
+# Get response size silently
+size=$(curl -s "$1" -w "%{size_download}")
 
-# Define the URL from the argument
-url="$1"
-
-# Use curl to get the response size
-response_size=$(curl -s -o /dev/null -w "%{size_download}" "$url")
-
-# Check if curl command was successful (exit code 0)
+# Check curl exit code and display size or error
 if [ $? -eq 0 ]; then
-  echo "Response body size: $response_size bytes"
+  echo "Response body size: $size bytes"
 else
-  echo "Error: curl failed to retrieve the response size."
+  echo "Error: curl failed."
 fi
