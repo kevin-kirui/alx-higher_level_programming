@@ -1,20 +1,13 @@
 #!/bin/bash
 
 # Send GET request to the URL and display the body of the response
-response=$(curl -s -w "%{http_code}" -o temp_body.txt "$1")
+response=$(curl -s -w "%{http_code}" "$1")
 
-# Check if the temporary file exists
-if [ -f "temp_body.txt" ]; then
-    # Extract the status code from the last 3 characters of the file
-    status_code=$(tail -c 3 temp_body.txt)
-    
-    # Display the body of the response if the status code is 200
-    if [ "$status_code" -eq 200 ]; then
-        cat temp_body.txt
-    fi
-    
-    # Clean up temporary file
-    rm temp_body.txt
+# Check if the response contains a 200 status code
+if [[ $response == *"200"* ]]; then
+    # Extract the body of the response and display it
+    echo "$response" | sed 's/.*\r\n\r\n//'
 else
-    echo "Error: Failed to create or access temporary file."
+    echo "Error: Request failed or response status code is not 200."
 fi
+
