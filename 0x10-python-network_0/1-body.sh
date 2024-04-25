@@ -1,13 +1,18 @@
 #!/bin/bash
 
-# Send GET request to the URL and display the body of the response
-response=$(curl -s -w "%{http_code}" "$1")
+# Send GET request to the URL and capture the response
+response=$(curl -s -w "%{http_code}" -o temp_body.txt "$1")
 
-# Check if the response contains a 200 status code
-if [[ $response == *"200"* ]]; then
-    # Extract the body of the response and display it
-    echo "$response" | sed 's/.*\r\n\r\n//'
+# Extract the response status code
+status_code=$(tail -c 3 temp_body.txt)
+
+# Check if the request was successful (status code 200)
+if [ "$status_code" -eq 200 ]; then
+    # Display the body of the response
+    cat temp_body.txt | sed '1,/^$/d'
 else
-    echo "Error: Request failed or response status code is not 200."
+    echo "Error: Request failed with status code $status_code"
 fi
 
+# Clean up temporary file
+rm -f temp_body.txt
