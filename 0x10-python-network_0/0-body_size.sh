@@ -5,7 +5,7 @@ size=$(curl -s "$1" -w "%{size_download}")
 
 # Check curl exit code and display size or error
 if [ $? -eq 0 ]; then
-  echo "$size" 
+  echo "$size"  # Only print size (no label)
 else
   echo "Error: curl failed."
 fi
