@@ -9,10 +9,12 @@ fi
 # Send a DELETE request using curl and display the response body
 response=$(curl -X DELETE -s -w "%{http_code}" -o response_body.txt "$1")
 
-# Check if the request was successful (HTTP status code 200)
-if [ "$response" -eq 200 ]; then
-    cat response_body.txt
-else
-    echo "Request failed with HTTP status code $response"
-fi
+# Extract the HTTP status code from the response
+http_status="${response: -3}"
 
+# Check if the request was successful (HTTP status code 200)
+if [ "$http_status" -eq 200 ]; then
+    echo "I'm a DELETE request"
+else
+    echo "Request failed with HTTP status code $http_status"
+fi
