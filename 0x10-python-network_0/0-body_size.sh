@@ -1,11 +1,3 @@
 #!/bin/bash
-
-# Get response size silently
-size=$(curl -s "$1" -w "%{size_download}")
-
-# Check curl exit code and display size or error
-if [ $? -eq 0 ]; then
-  echo "$size"  # Only print size (no label)
-else
-  echo "Error: curl failed."
-fi
+# Get the byte size of the HTTP response header for a given URL.
+curl -s "$1" | wc -c
