@@ -6,8 +6,7 @@ URL with the email as a parameter, and displays the body of the response
 """
 from sys import argv
 from urllib.parse import urlencode
-from urllib.request import Request, urlopen
-
+from urllib.request import Request, urlopen, URLError
 
 if __name__ == "__main__":
     url = argv[1]
@@ -15,5 +14,8 @@ if __name__ == "__main__":
     data = urlencode(value).encode("ascii")
     req = Request(url, data)
 
-    with urlopen(req) as response:
-        print(response.read().decode("utf-8", "replace"))
+    try:
+        with urlopen(req) as response:
+            print(response.read().decode("utf-8", "replace"))
+    except URLError as e:
+        print(f"Failed to make a request: {e.reason}")
